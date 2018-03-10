@@ -42,6 +42,12 @@ textObject.y = display.contentHeight/3
 textObject:setTextColor ( 255/255, 210/255, 203/255)
 textObject.isVisible = false 
 
+-- Correct sound
+local correctSound = audio.loadSound( "sounds/soundeffect.mp3")
+-- Setting a varibale to an mp3
+local correctSoundChannel
+
+
 -- Function: BlueButtonListener
 -- Input: touch listener
 -- Output: none
@@ -53,6 +59,7 @@ local function BlueButtonListener(touch)
 		redButton.isVisible = true 
 		textObject.isVisible = true 
 		checkmark.isVisible = true 
+		correctSoundChannel = audio.play(correctSound)
 	end 
 
 	if (touch.phase == "ended") then
@@ -64,4 +71,11 @@ end
 
 -- add the respective listeners to each object
 blueButton:addEventListener("touch", BlueButtonListener)
+
+
+
+
+
+
+
 
